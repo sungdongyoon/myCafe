@@ -53,7 +53,11 @@ const Header = () => {
         <div className="w-full flex justify-between items-center">
           <Link href="/" className="relative">
             <Image
-              src="/logo/mycafe-logo.png"
+              src={
+                pathname === "/" && !scrollded
+                  ? "/logo/mycafe-logo-white.png"
+                  : "/logo/mycafe-logo.png"
+              }
               alt="logo"
               width={100}
               height={100}
