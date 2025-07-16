@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./_reset.scss";
+@import "./font.scss";
+
+* {
+  font-family: "Pretendard", sans-serif !important;
+}
