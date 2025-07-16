@@ -41,7 +41,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              당신의 소중한 시간을 더욱 특별하게 만드는 카페, myCafe 입니다.
+              당신의 소중한 시간을 더욱 특별하게 만드는 카페, myCafe 입니다..
             </motion.h3>
           </div>
         </div>
