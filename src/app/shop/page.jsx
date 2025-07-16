@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import React, { useEffect, useState } from "react";
 import { useProducts } from "@/provider/ProductsProvider";
 import { useSearchParams } from "next/navigation";
@@ -9,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Shop = () => {
-  const params = useSearchParams();
-  const categoryParams = params.get("category");
+  // const params = useSearchParams();
+  // const categoryParams = params.get("category");
 
   // ------------ 데이터 ------------
   const productData = useProducts(); // 모든 상품
@@ -26,15 +24,15 @@ const Shop = () => {
 
   // ------------ 이펙트 ------------
   // viewItem 상태 변경
-  useEffect(() => {
-    if (categoryParams === "coffee") {
-      setViewItem(coffeeData);
-    } else if (categoryParams === "goods") {
-      setViewItem(goodsData);
-    } else {
-      setViewItem(coffeeData);
-    }
-  }, [categoryParams]);
+  // useEffect(() => {
+  //   if (categoryParams === "coffee") {
+  //     setViewItem(coffeeData);
+  //   } else if (categoryParams === "goods") {
+  //     setViewItem(goodsData);
+  //   } else {
+  //     setViewItem(coffeeData);
+  //   }
+  // }, [categoryParams]);
 
   return (
     <div className="min-h-[100vh] py-[100px] px-[200px]">
