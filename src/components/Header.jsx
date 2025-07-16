@@ -3,17 +3,31 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const pathname = usePathname();
+
+  // ------------ 상태 ------------
   const [scrollded, setScrolled] = useState(false);
 
+  // ------------ 이펙트 ------------
+  // 스크롤 이벤트
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
+      if (pathname === "/") {
+        if (window.scrollY > 100) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
       } else {
-        setScrolled(false);
+        if (window.scrollY > 1) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
       }
     };
 
@@ -25,9 +39,10 @@ const Header = () => {
     <div
       className={clsx(
         "flex justify-center items-center fixed top-0 left-0 right-0 z-[9999] transition-colors duration-300",
-        scrollded
-          ? "bg-white text-black shadow-sm"
-          : "bg-transparent text-white"
+        pathname === "/" && scrollded && "bg-white text-black shadow-sm",
+        pathname === "/" && !scrollded && "bg-transparent text-white",
+        pathname !== "/" && scrollded && "bg-white text-black shadow-sm",
+        pathname !== "/" && !scrollded && "bg-transparent text-black"
       )}
     >
       <div className="w-full h-full max-w-screen-xl flex flex-col justify-center px-[50px] py-[25px]">

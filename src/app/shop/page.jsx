@@ -7,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Shop = () => {
-  // const params = useSearchParams();
-  // const categoryParams = params.get("category");
+  const params = useSearchParams();
+  const categoryParams = params.get("category");
 
   // ------------ 데이터 ------------
   const productData = useProducts(); // 모든 상품
@@ -24,15 +24,15 @@ const Shop = () => {
 
   // ------------ 이펙트 ------------
   // viewItem 상태 변경
-  // useEffect(() => {
-  //   if (categoryParams === "coffee") {
-  //     setViewItem(coffeeData);
-  //   } else if (categoryParams === "goods") {
-  //     setViewItem(goodsData);
-  //   } else {
-  //     setViewItem(coffeeData);
-  //   }
-  // }, [categoryParams]);
+  useEffect(() => {
+    if (categoryParams === "coffee") {
+      setViewItem(coffeeData);
+    } else if (categoryParams === "goods") {
+      setViewItem(goodsData);
+    } else {
+      setViewItem(coffeeData);
+    }
+  }, [categoryParams]);
 
   return (
     <div className="min-h-[100vh] py-[100px] px-[200px]">
@@ -57,7 +57,7 @@ const Shop = () => {
             <div key={item.id}>
               <div className="border-2 border-solid border-gray-200 rounded-[10px] flex justify-center items-center p-[20px]">
                 <Image
-                  src={item.image_url}
+                  src={item.image_url ?? "/image/no-image.jpg"}
                   width={100}
                   height={100}
                   alt={item.name_ko}

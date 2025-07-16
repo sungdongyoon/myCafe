@@ -26,7 +26,7 @@ const ProductSection = ({ data, category, title }) => {
               >
                 <div className="w-[30%] flex justify-center">
                   <Image
-                    src={item.image_url}
+                    src={item.image_url ?? "/image/no-image.jpg"}
                     width={100}
                     height={100}
                     alt="원두"
