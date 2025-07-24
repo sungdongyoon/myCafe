@@ -7,7 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const About = () => {
   return (
-    <div className="min-h-[100vh] py-[100px] px-[200px] flex flex-col gap-[100px]">
+    <div className="min-h-[100vh] py-[200px] px-[200px] flex flex-col gap-[100px]">
       <div className="flex items-center">
         <div className="w-[100%] max-w-[400px] aspect-[4/5] relative">
           <Image

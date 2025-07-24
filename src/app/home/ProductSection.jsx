@@ -1,3 +1,5 @@
+import { Badge } from "@/components/ui/badge";
+import { comma } from "@/utils/functions";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -36,7 +38,8 @@ const ProductSection = ({ data, category, title }) => {
                   <p className="text-[18px] text-gray-700 font-semibold">
                     {item.name_ko}
                   </p>
-                  <p className="text-[14px]">{item.price}원</p>
+                  {item.roasting_level && <Badge>{item.roasting_level}</Badge>}
+                  <p className="text-[14px]">{comma(item.price)}원</p>
                 </div>
               </div>
             ))}

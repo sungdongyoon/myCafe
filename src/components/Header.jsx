@@ -65,7 +65,7 @@ const Header = () => {
           </Link>
           <div className="flex gap-[50px] text-[18px]">
             <Link href="/about">About</Link>
-            <Link href="/shop">shop</Link>
+            <Link href="/shop?category=coffee">shop</Link>
             <Link href="/contact">contact</Link>
           </div>
         </div>

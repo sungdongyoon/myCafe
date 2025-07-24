@@ -3,7 +3,7 @@ import Kakaomap from "./components/Kakaomap";
 
 const Contact = () => {
   return (
-    <div className="min-h-[100vh] py-[100px] px-[200px]">
+    <div className="min-h-[100vh] py-[200px] px-[200px]">
       <div className="mb-[50px] flex flex-col gap-[7px] justify-center">
         <h3 className="text-[30px] mb-[20px] font-semibold">문의</h3>
         <p>Email : ehdtjd0906@naver.com</p>
