@@ -23,6 +23,7 @@ const ProductDetail = () => {
       itemName: product.name_ko,
       price: product.price * itemCount,
       count: itemCount,
+      orderId: product.product_id,
     };
   }, [product, itemCount]);
 
@@ -86,6 +87,7 @@ const ProductDetail = () => {
               price={postTossPaymentData.price}
               itemName={postTossPaymentData.itemName}
               count={postTossPaymentData.count}
+              orderId={postTossPaymentData.orderId}
             />
           </div>
         </div>

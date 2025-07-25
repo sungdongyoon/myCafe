@@ -87,7 +87,9 @@ const Shop = () => {
               </div>
               <div className="flex flex-col gap-[10px] justify-center items-center py-[20px]">
                 <p className="text-[15px]">{item.name_ko}</p>
-                {item.roasting_level && <Badge>{item.roasting_level}</Badge>}
+                {item.roasting_level && (
+                  <Badge className="bg-point">{item.roasting_level}</Badge>
+                )}
                 <p>
                   <span className="text-[18px] font-medium">
                     {comma(item.price)}
