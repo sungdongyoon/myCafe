@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen">
       <section className="w-full min-h-[60vh] sm:min-h-[80vh] md:min-h-screen">
-        <div className="w-full h-full relative bg-red-200 min-h-[300px] sm:min-h-[400px] md:min-h-[600px]">
+        <div className="w-full h-full relative bg-red-200 min-h-[60vh] sm:min-h-[80vh] md:min-h-screen">
           <Image
             src="https://fkdjjlglhqooonngtein.supabase.co/storage/v1/object/public/test//test-representative.jpeg"
             fill

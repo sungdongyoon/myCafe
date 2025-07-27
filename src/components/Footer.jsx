@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="py-[50px] px-[300px] bg-main text-background">
-      <div className="">
+    <div className="py-[50px] px-[20px] bg-main px-4 sm:px-8 md:px-12 text-background flex flex-col items-center">
+      <div className="w-full max-w-screen-xl">
         <div className="flex">
           <Image
             src="/logo/mycafe-logo.png"
