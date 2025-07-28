@@ -6,6 +6,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { comma } from "@/utils/functions";
 import Payment from "@/components/Payment";
+import Container from "@/components/Container";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -30,36 +31,39 @@ const ProductDetail = () => {
   console.log("data", postTossPaymentData);
 
   return (
-    <div className="min-h-[100vh] py-[200px] flex flex-col items-center">
-      <div className="w-full max-w-screen-xl">
-        <div className="flex gap-[20px]">
-          <div className="w-[50%]">
-            <div className="w-[100%] aspect-square relative">
+    <Container>
+      <div className="w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
+          <div className="w-full md:w-1/2">
+            <div className="w-full aspect-square relative">
               <Image
                 src={product.image_url ?? "/image/no-image.jpg"}
                 alt={product.name_ko}
                 fill
+                className="object-cover"
               />
             </div>
           </div>
-          <div className="w-[50%]">
-            <div className="flex flex-col gap-[10px] mb-[20px]">
-              <h3 className="text-[30px] font-medium">{product.name_ko}</h3>
-              <span className="text-[24px] font-semibold">
+          <div className="w-full md:w-1/2 flex flex-col gap-6">
+            <div className="flex flex-col gap-3 sm:gap-4">
+              <h3 className="text-2xl sm:text-3xl font-medium">
+                {product.name_ko}
+              </h3>
+              <span className="text-xl sm:text-2xl font-semibold">
                 {comma(product.price)}원
               </span>
               <span>{product.roasting_level}</span>
               <span>{product.country}</span>
               <span>{product.desc_ko}</span>
             </div>
-            <div className="border border-gray-500 border-solid rounded-[10px] p-[20px] flex flex-col gap-[10px]">
-              <h5 className="text-[20px] font-medium mb-[20px]">
+            <div className="border border-gray-500 border-solid rounded-lg p-4 flex flex-col gap-4">
+              <h5 className="text-lg sm:text-xl font-medium">
                 {product.name_ko}
               </h5>
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <div className="flex items-center">
                   <button
-                    className="border border-solid border-gray-500 w-[30px] h-[30px] rounded-[5px] text-[18px]"
+                    className="border border-solid border-gray-500 w-[30px] h-[30px] rounded-[5px] text-lg"
                     onClick={() =>
                       setItemCount((prev) => (prev > 1 ? prev - 1 : 1))
                     }
@@ -77,7 +81,7 @@ const ProductDetail = () => {
                   </button>
                 </div>
                 <div>
-                  <span className="text-[20px] font-semibold">
+                  <span className="text-xl font-semibold">
                     {comma(itemCount * product.price)}원
                   </span>
                 </div>
@@ -92,7 +96,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

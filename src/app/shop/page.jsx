@@ -8,6 +8,7 @@ import Image from "next/image";
 import { comma } from "@/utils/functions";
 import clsx from "clsx";
 import { Badge } from "@/components/ui/badge";
+import Container from "@/components/Container";
 
 const Shop = () => {
   const params = useSearchParams();
@@ -43,8 +44,8 @@ const Shop = () => {
   }, [categoryParams]);
 
   return (
-    <div className="min-h-[100vh] py-[200px] px-[200px]">
-      <div className="flex flex-col items-center gap-[20px]">
+    <Container>
+      <div className="w-full max-w-screen-xl flex flex-col items-center gap-10">
         <h3 className="text-[30px] font-semibold">Shop</h3>
         <div className="flex gap-3 mb-[30px]">
           {[
@@ -66,42 +67,40 @@ const Shop = () => {
             </Link>
           ))}
         </div>
-        <div className="w-[100%] grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {viewItem.map((item) => (
             <div
               key={item.id}
-              className="aspect-square cursor-pointer"
+              className="flex flex-col cursor-pointer"
               onClick={() => {
                 router.push(`/shop/${item.product_id}`);
               }}
             >
-              <div className="border border-solid border-gray-200 rounded-[10px] flex justify-center items-center p-[20px] aspect-square relative">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={item.image_url ?? "/image/no-image.jpg"}
-                    fill
-                    alt={item.name_ko}
-                    className="object-cover"
-                  />
-                </div>
+              <div className="border border-solid border-gray-200 rounded-lg flex justify-center items-center p-4 aspect-square relative overflow-hidden">
+                <Image
+                  src={item.image_url ?? "/image/no-image.jpg"}
+                  fill
+                  alt={item.name_ko}
+                  className="object-cover"
+                />
               </div>
-              <div className="flex flex-col gap-[10px] justify-center items-center py-[20px]">
-                <p className="text-[15px]">{item.name_ko}</p>
+              <div className="flex flex-col gap-2 justify-center items-center py-4">
+                <p className="text-[15px] font-medium">{item.name_ko}</p>
                 {item.roasting_level && (
                   <Badge className="bg-point">{item.roasting_level}</Badge>
                 )}
                 <p>
-                  <span className="text-[18px] font-medium">
+                  <span className="text-lg font-medium">
                     {comma(item.price)}
                   </span>
-                  <span className="text-[12px]">원</span>
+                  <span className="text-xs">원</span>
                 </p>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

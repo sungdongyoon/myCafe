@@ -26,7 +26,7 @@ const ProductSection = ({ data, category, title }) => {
             .map((item) => (
               <Link
                 href={`/shop/${item.product_id}`}
-                className="flex flex-col md:flex-row items-center bg-white p-4 sm:p-5 md:p-6 rounded-xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="flex flex-col gap-1 md:flex-row items-center bg-white p-4 sm:p-5 md:p-6 rounded-xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-200"
                 key={item.id}
               >
                 <div className="w-full md:w-[30%] flex justify-center mb-2 md:mb-0">
@@ -37,12 +37,15 @@ const ProductSection = ({ data, category, title }) => {
                     alt="원두"
                   />
                 </div>
-                <div className="w-full md:w-[70%] py-2 md:py-3 inline-flex flex-col gap-2 md:gap-3 items-center md:items-start text-center md:text-left">
+                <div className="w-full md:w-[70%] py-2 md:py-3 inline-flex flex-col gap-1 items-center md:items-start text-center md:text-left">
                   <p className="text-base sm:text-lg md:text-xl text-gray-700 font-semibold">
                     {item.name_ko}
                   </p>
+                  <p className="text-sm text-main font-medium">
+                    자두, 적포도, 흑설탕
+                  </p>
                   {item.roasting_level && (
-                    <Badge className="w-fit bg-point cursor-default text-xs sm:text-sm md:text-base">
+                    <Badge className="w-fit bg-point cursor-default text-xs">
                       {item.roasting_level}
                     </Badge>
                   )}
